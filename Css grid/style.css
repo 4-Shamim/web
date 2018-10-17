@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 40% 40% 1fr;
+    /* grid-template-rows: 1fr 1fr 1fr 1fr; */
+    grid-template-areas: 
+    "title title title title"
+    ". header header ."
+    ". sidebar content ."
+    ". footer footer ."
+    ;
+}
+
+.title {
+    grid-area: title; 
+    background-color: #df4578;
+}
+
+.header {
+    grid-area: header;
+    background-color: #457811;
+}
+/* ------------ Sidebar Start ---------- */
+.sidebar {
+    grid-area: sidebar;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr 1fr; */
+    grid-template-areas: 
+    "top top"
+    "left right"
+    "bottom bottom"
+    ;
+    background-color: #dddddd;
+}
+
+.top {
+    grid-area: top;
+    background-color: #df00ff;
+}
+
+.left {
+    grid-area: left;
+    background-color: #0000ff;
+}
+
+.right {
+    grid-area: right;
+    background-color: #dddddd;
+}
+
+.bottom {
+    grid-area: bottom;
+    background-color: #00ffff;
+}
+
+/* ------------- Sidebar End --------------- */
+.content {
+    padding: 20px;
+    grid-area: content;
+    justify-self: center;
+    background-color: #ffff00;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: #ff0000;
+}
+
+
+/* ------------- Responsive --------------- */
+
+@media screen and (max-width: 910px) {
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* grid-template-rows: 1fr 1fr 1fr 1fr; */
+        grid-template-areas: 
+        "title title"
+        "header header"
+        "sidebar sidebar"
+        "content content"
+        "footer footer"
+        ;
+    }
+
+    /* both are same */
+
+     /* .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "title"
+        "header"
+        "sidebar"
+        "content"
+        "footer "
+        ;
+    }  */
+}
+
+@media screen and (max-width: 468px) {
+
+    .sidebar {
+        grid-area: sidebar;
+        display: grid;
+        grid-template-columns: 1fr;
+        /* grid-template-rows: 1fr 1fr 1fr; */
+        grid-template-areas: 
+        "top"
+        "left"
+        "right"
+        "bottom"
+        ;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
