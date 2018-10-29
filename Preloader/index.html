@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Preloader....</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <div class="preloader" id="preloader">
+        <span class="loader" id="loader"></span>
+    </div>
+
+    <main class="main">
+        <div class="container" align=center>
+            <h1>Welcome</h1>
+            <iframe width="1280" height="720" src="https://www.youtube.com/embed/egPR5MuE7u0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </main>
+
+
+    <script>
+        
+        var preloader = document.getElementById("preloader");
+        var loader = document.getElementById("loader");
+        window.addEventListener("load", function() {
+            preloader.classList.add("complete");
+            loader.classList.add("complete");
+        }, false);
+
+    </script>
+
+</body>
+</html>
