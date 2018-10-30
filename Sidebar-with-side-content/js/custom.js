@@ -20,7 +20,8 @@ var wow = new WOW(
 /* -------- Navigation --------- */
 var menu = document.querySelectorAll(".nav-menu ul li a");
 menu.forEach(function(e) {
-    e.addEventListener("click", function() {
+    e.addEventListener("click", function(e) {
+        
         var current = document.querySelector(".nav-menu ul li a.active");
         current.className = current.className.replace("active", "");
         this.classList.add("active");
@@ -30,9 +31,10 @@ menu.forEach(function(e) {
         var page = document.querySelector(".sub-page .current-page");
         page.className = page.className.replace("current-page", "");
 
-        var page = document.querySelector(".sub-page " + clickedPage);
-        page.classList.add("current-page");
-
+        var currentPage = document.querySelector(".sub-page " + clickedPage);
+        currentPage.classList.add("current-page");
+        
+        e.preventDefault();
     });
 }, false);
 

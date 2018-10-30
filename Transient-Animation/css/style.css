@@ -1,0 +1,8 @@
+@font-face {
+    src: url(/fonts/Nosifer-Regular.ttf);
+    font-family: nos;
+}
+
+.main {
+    font-family: nos;
+}
