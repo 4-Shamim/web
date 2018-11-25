@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Image-View-Input-File</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <div class="image" id="image-view">
+        <img id="img-view" src="img/default-thumbnail.jpg" alt="">
+        <div id="image-tigger">
+            Change Image
+        </div>
+        <div class="file-input">
+            <input onchange="readURL(this)" id="realFile" type="file" multiple/>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

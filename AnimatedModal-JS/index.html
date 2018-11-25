@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animated Modal Js</title>
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/iziModal.min.css">
+
+    <style>
+        .iziModal-content {
+            width: 400px;
+            height: 450px;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Animated Modal Js -->
+    <a id="modal1" href="#animatedModal">Modal-1</a>
+    <a id="modal2" href="#animatedModal2">Modal-2</a>
+
+    <div id="animatedModal">
+        <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
+        <div id="btn-close-modal" class="close-animatedModal">
+            CLOSE MODAL
+        </div>
+
+        <div class="modal-content">
+            <!--Your modal content goes here-->
+        </div>
+    </div>
+    <div id="animatedModal2">
+        <!--"THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID-->
+        <div id="btn-close-modal" class="close-animatedModal2">
+            CLOSE MODAL
+        </div>
+
+        <div class="modal-content">
+            <!--Your modal content goes here-->
+        </div>
+    </div>
+
+    <!-- Izi Modal -->
+
+    <!-- Modal structure -->
+    <div id="modal">
+        <!-- data-iziModal-fullscreen="true"  data-iziModal-title="Welcome"  data-iziModal-subtitle="Subtitle"  data-iziModal-icon="icon-home" -->
+        <!-- Modal content -->
+        <div class="iziModal-content">
+            <h2 id="name"></h2>
+            <h4 id="url"></h4>
+        </div>
+    </div>
+
+    <!-- Trigger to open Modal -->
+    <a href="#" class="trigger">Izi Modal</a>
+
+    <!-- Two -->
+    <a href="#" data-izimodal-open="#modal" data-izimodal-transitionin="fadeInDown">Modal</a>
+
+    <!-- Three -->
+    <a href="#" data-izimodal-open="#modal" data-izimodal-zindex="20000" data-izimodal-preventclose="">Another Modal</a>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/animatedModal.min.js"></script>
+    <script src="js/iziModal.min.js"></script>
+
+    <script>
+
+        /*------------ AnimatedModal Js -------------*/
+        $("#modal1").animatedModal();
+
+        $("#modal2").animatedModal({
+            modalTarget: 'animatedModal2',
+            animatedIn: 'lightSpeedIn',
+            animatedOut: 'bounceOutDown',
+            color: '#3498db',
+            // Callbacks
+            beforeOpen: function () {
+                console.log("The animation was called");
+            },
+            afterOpen: function () {
+                console.log("The animation is completed");
+            },
+            beforeClose: function () {
+                console.log("The animation was called");
+            },
+            afterClose: function () {
+                console.log("The animation is completed");
+            }
+        });
+
+        /*--------------- Izi Modal ---------------*/
+        $(document).ready(function () {
+
+            $("#modal").iziModal();
+            
+            $(document).on('click', '.trigger', function (event) {
+                event.preventDefault();
+                // $('#modal').iziModal('setZindex', 99999);
+                // $('#modal').iziModal('open', { zindex: 99999 });
+                // $('#modal').iziModal('open', event);
+                openModel("url");
+            });
+
+                // $("#modal").iziModal({
+
+                //     onOpening: function (modal) {
+
+                //         modal.startLoading();
+
+                //         /* $.get('http://localhost:8080/api/social-link/1', function (data) {
+                //             $("#modal .iziModal-content").html(data);
+                //             console.log(data);
+                //             modal.stopLoading();
+                //         }); */
+                //         $.ajax({
+                //             url: "http://localhost:8080/api/social-link/1",
+                //             type: "GET",
+                //             success: function (data) {
+                //                 console.log(data);
+                //                 $("#name").html(data.name);
+                //                 $("#url").html(data.linkURL)
+                //                 modal.stopLoading();
+                //             },
+                //             error: function (data) {
+
+                //             }
+                //         });
+                //     }
+                // });
+        });
+
+        function openModel(url) {
+            console.log(url);
+            $("#modal").iziModal({
+
+                onOpening: function (modal) {
+
+                    modal.startLoading();
+
+                    /* $.get('http://localhost:8080/api/social-link/1', function (data) {
+                        $("#modal .iziModal-content").html(data);
+                        console.log(data);
+                        modal.stopLoading();
+                    }); */
+                    $.ajax({
+                        url: "http://localhost:8080/api/social-link/1",
+                        type: "GET",
+                        success: function (data) {
+                            console.log(data);
+                            $("#name").html(data.name);
+                            $("#url").html(data.linkURL);
+                        },
+                        error: function (data) {
+
+                        }
+                    });
+                }
+            });
+            $('#modal').iziModal('open');
+        }
+
+    </script>
+</body>
+
+</html>

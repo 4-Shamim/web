@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Alertify Js</title>
+    <link rel="stylesheet" href="css/alertify.min.css">
+    <link rel="stylesheet" href="css/themes/semantic.min.css">
+</head>
+
+<body>
+
+    <a id="myAnchor" href="/ok">Alert Me</a>
+    <a onclick="alertMe(event)" href="/ok">Alert Me 1</a>
+
+
+    <script src="js/alertify.min.js"></script>
+    <script>
+        function alertMe(e) {
+            e.preventDefault();
+            var link = e.currentTarget.getAttribute("href");
+            alertify.alert('Alert Title', 'Alert Message!', function () {
+                    window.location = link
+                     alertify.success('Ok'); 
+                });
+        }
+        document.getElementById("myAnchor").addEventListener("click", function (event) {
+            event.preventDefault()
+            var link = this.getAttribute("href");
+            console.log(link);
+            alertify.alert('Alert Title', 'Alert Message!', function () {
+                    window.location = link
+                     alertify.success('Ok'); 
+                });
+        });
+    </script>
+</body>
+
+</html>

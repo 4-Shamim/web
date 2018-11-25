@@ -1,18 +1,18 @@
-.protfolio-item-content {
+.portfolio-item-content {
     overflow: hidden;
 }
-.protfolio-item {
+.portfolio-item {
     display: inline-block;
     position: relative;
     overflow: hidden;
     width: 400px;
     cursor: pointer;
 }
-.protfolio-item img {
+.portfolio-item img {
     width: 100%;
     height: auto;
 }
-.protfolio-item .overlay {
+.portfolio-item .overlay {
     position: absolute;
     color: rgb(0, 162, 255);
     width: 100%;
