@@ -19,7 +19,15 @@ imageTigger.addEventListener("click", () => {
 }) ;
 
 function readURL(input) {
+
     if(input.files && input.files[0]) {
+
+        var imageSize = input.files[0].size / 1024;
+
+        if(imageSize > 50) {
+            return alert("Image should be less than 50 KB");
+        }
+
         var obj = new FileReader();
         obj.onload = function(data) {
             var image = document.getElementById("img-view");
